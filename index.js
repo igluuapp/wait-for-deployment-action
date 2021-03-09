@@ -27,7 +27,7 @@ async function waitForDeployment (options) {
   const timeout = parseInt(options.timeout) || 30
 
   const { sha } = github.context
-  const octokit = new github.GitHub(token, { previews: ["flash", "ant-man"] });
+  const octokit = github.getOctokit(token, { previews: ["flash", "ant-man"] });
   const start = Date.now()
 
   const params = {
